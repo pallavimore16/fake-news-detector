@@ -2,29 +2,18 @@
 <html>
 <head>
   <title>Fake News Detector</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>WhatsApp Fake News Detector</h1>
 
-  <textarea id="message" placeholder="Paste WhatsApp message here"></textarea><br><br>
+<h1>📢 WhatsApp Fake News Detector</h1>
 
-  <button onclick="checkNews()">Check</button>
+<textarea id="message" placeholder="Paste message here..."></textarea>
 
-  <h2 id="result"></h2>
+<button onclick="checkNews()">Check</button>
 
-  <script>
-    async function checkNews() {
-      const msg = document.getElementById("message").value;
+<div id="output"></div>
 
-      const res = await fetch('/api/check', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: msg })
-      });
-
-      const data = await res.json();
-      document.getElementById("result").innerText = data.result;
-    }
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
